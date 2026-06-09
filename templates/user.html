@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}ZHEN HAUTE COUTURE - VIP 專屬沙龍{% endblock %}
+
+{% block content %}
+<div class="container my-5 py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            
+            <div class="mb-5">
+                <span class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 4px; color: #ba2626 !important; font-weight: bold;">
+                    MEMBER PRIVILEGE
+                </span>
+                <h1 class="fw-light display-4 mt-3" style="color: #111111; letter-spacing: 2px;">
+                    Chère, {{ name | capitalize }}
+                </h1>
+                <div style="width: 30px; height: 1px; background-color: #ba2626; margin: 20px auto;"></div>
+                <p class="lead text-muted" style="font-style: italic; font-size: 1.1rem;">
+                    歡迎回到您的 ZHEN 專屬 VIP 私人試鞋間
+                </p>
+            </div>
+
+            {% if message %}
+                <div class="alert rounded-0 d-inline-block px-5 py-3 mb-5" 
+                     style="background-color: #e5dfd9; color: #111111; border: 1px solid #dcd3cb; letter-spacing: 2px; font-size: 0.9rem;">
+                    <i class="bi bi-check-circle-fill me-2" style="color: #ba2626;"></i> {{ message }}
+                </div>
+            {% endif %}
+
+            <div class="card rounded-0 mx-auto shadow-sm" style="max-width: 500px; border: 1px solid #e5dfd9; background-color: #ffffff;">
+                <div class="card-body p-5">
+                    <h5 class="fw-light mb-4" style="letter-spacing: 3px; color: #111111;">尊榮會員權益</h5>
+                    
+                    <ul class="text-start list-unstyled mx-auto" style="max-width: 300px; color: #555555; font-size: 0.9rem; line-height: 2.2;">
+                        <li><span style="color: #ba2626;">✦</span> 享年度高訂新品優先預約權</li>
+                        <li><span style="color: #ba2626;">✦</span> 專屬製鞋師一對一量腳楦頭服務</li>
+                        <li><span style="color: #ba2626;">✦</span> 終身尊享免費更換鞋跟天皮乙次</li>
+                        <li><span style="color: #ba2626;">✦</span> 旗艦概念店 VIP Salon 休憩專區</li>
+                    </ul>
+
+                    <hr style="border-top: 1px solid #e5dfd9;" class="my-4">
+                    
+                    <a href="{{ url_for('product') }}" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase" style="font-size: 0.8rem; letter-spacing: 2px; background-color: #111111; text-decoration: none;">
+                        前往挑選璀璨鞋履
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

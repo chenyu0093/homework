@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}ZHEN - 高訂鞋履系列{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    
+    <div class="text-center mb-5 pb-4">
+        <span class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 5px; color: #555555;">THE ART OF FOOTWEAR</span>
+        <h2 class="fw-light display-5 mt-2" style="color: #111111; letter-spacing: 2px;">高訂經典鞋履系列</h2>
+        <div style="width: 25px; height: 1px; background-color: #ba2626; margin: 20px auto;"></div>
+    </div>
+
+    <div class="row flex-column align-items-center">
+        
+        {% for p in products %}
+        <div class="col-lg-9 mb-5 pb-5">
+            <div class="row align-items-center g-0 {% if loop.index0 % 2 == 1 %}flex-md-row-reverse{% endif %}" style="background-color: #ffffff; border: 1px solid #e5dfd9;">
+                
+                <div class="col-md-6">
+                    {% if p.pno == 'P00001' %}
+                        <img src="https://via.placeholder.com/500x450/111111/ba2626?text=ZHEN+{{ p.pno }}" class="img-fluid w-100 rounded-0" style="object-fit: cover; min-height: 400px;" alt="{{ p.pname }}">
+                    {% elif p.pno == 'P00002' %}
+                        <img src="https://via.placeholder.com/500x450/e5dfd9/111111?text=ZHEN+{{ p.pno }}" class="img-fluid w-100 rounded-0" style="object-fit: cover; min-height: 400px;" alt="{{ p.pname }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/500x450/222222/ffffff?text=ZHEN+{{ p.pno }}" class="img-fluid w-100 rounded-0" style="object-fit: cover; min-height: 400px;" alt="{{ p.pname }}">
+                    {% endif %}
+                </div>
+                
+                <div class="col-md-6 p-5">
+                    <span style="font-size: 0.8rem; letter-spacing: 3px; color: #ba2626;" class="fw-bold text-uppercase">
+                        {{ p.category }}
+                    </span>
+                    
+                    <h3 class="fw-light my-3" style="color: #111111;">
+                        {{ p.pname }}
+                    </h3>
+                    
+                    <p class="text-muted small mb-4" style="line-height: 1.8; letter-spacing: 0.5px; color: #555555;">
+                        {{ p.description }}
+                    </p>
+                    
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: #e5dfd9 !important;">
+                        <div>
+                            <small class="text-muted text-uppercase" style="font-size: 0.75rem; color: #888888;">Haute Couture</small>
+                            <h4 class="fw-light mt-1 mb-0" style="color: #111111; font-weight: bold;">
+                                ${{"{:,}".format(p.unitprice | int)}}
+                            </h4>
+                        </div>
+                        <button class="btn btn-outline-dark rounded-0 px-4 py-2" style="font-size: 0.85rem; letter-spacing: 1px; border-color: #111111;">
+                            預約專屬試鞋
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

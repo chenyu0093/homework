@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5 py-5" style="background-color: #faf8f6;">
+    <div class="row justify-content-center text-center my-5 py-5">
+        <div class="col-lg-8">
+            
+            <span class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 6px; font-size: 0.8rem; color: #ba2626 !important; font-weight: bold;">
+                La Beauté en Mouvement
+            </span>
+            
+            <h1 class="fw-light display-3 my-4" style="color: #111111; font-weight: 200 !important; letter-spacing: 4px;">
+                步履之間，皆是盛宴
+            </h1>
+            
+            <div style="width: 50px; height: 1px; background-color: #ba2626; margin: 30px auto;"></div>
+            
+            <p class="lead text-muted mx-auto mb-5" style="max-width: 600px; font-style: italic; font-size: 1.1rem; line-height: 2; color: #444444;">
+                「高跟鞋是權杖，也是現代女性最優雅的武裝。在 ZHEN，我們用完美的足弓弧度與高訂皮革，為您雕琢每一次不妥協的自信登場。」
+            </p>
+            
+            <div class="mt-4">
+                <a href="{{ url_for('product') }}" class="btn px-5 py-3 rounded-0 text-uppercase" style="background-color: #111111; color: #ffffff; letter-spacing: 3px; font-size: 0.85rem; border: 1px solid #111111; transition: all 0.3s;">
+                    探索高訂系列
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="philosophy" class="py-5" style="background-color: #e5dfd9; border-top: 1px solid #dcd3cb; border-bottom: 1px solid #dcd3cb;">
+    <div class="container my-5">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-6">
+                <span class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 4px; color: #555555;">OUR PHILOSOPHY</span>
+                <h2 class="fw-light mt-2" style="color: #111111; letter-spacing: 2px;">極致完美的足弓美學</h2>
+                <div style="width: 25px; height: 1px; background-color: #ba2626; margin: 15px auto;"></div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-lg-8">
+                <p class="text-muted" style="line-height: 2; letter-spacing: 1px; color: #2b2b2b !important;">
+                    我們深信，一雙出色的高跟鞋不該是美麗的刑具。ZHEN 歷經數萬次腳型數據調研，專為亞洲女性微調楦頭設計。<br>
+                    堅持選用頂級義大利全粒面小牛皮與柔軟羊皮襯裡，搭配獨家研發的緩震足弓支撐，讓 10 公分的高度也能如履平地，將高級製鞋工藝轉化為您的第二層肌膚。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="artisan" class="container my-5 py-5">
+    <div class="row align-items-center g-5">
+        <div class="col-md-5">
+            <img src="https://via.placeholder.com/500x600/1a1a1a/ffffff?text=Maestro+Zhen" class="img-fluid rounded-0 shadow-sm" alt="高訂製鞋巨匠">
+        </div>
+        <div class="col-md-7 p-5">
+            <span style="font-size: 0.8rem; letter-spacing: 3px; color: #ba2626;" class="fw-bold text-uppercase">MASTER SHOEMAKER</span>
+            <h3 class="fw-light my-3" style="color: #111111; letter-spacing: 1px;">高訂製鞋巨匠 — 甄大師 (Maestro ZHEN)</h3>
+            <p class="text-muted mb-4" style="line-height: 1.8; font-size: 0.95rem; color: #444444;">
+                承襲佛羅倫斯近半世紀的純手工製鞋技藝，甄大師對於線條有著近乎偏執的追求。他將建築學的結構力學融入鞋跟設計，每雙作品從皮革挑選、手工裁切、鞋楦成型到鞋底那一抹驚艷的經典紅底勾勒，皆需歷時 120 道工序、超過 48 小時的手工雕琢。
+            </p>
+            <blockquote class="border-start ps-3 py-1 italic text-muted" style="border-color: #ba2626 !important; font-style: italic; color: #555555;">
+                "高跟鞋改變的不僅是身高，更是女性看待世界的姿態。"
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<div id="products" class="py-5" style="background-color: #faf8f6; border-top: 1px solid #e5dfd9;">
+    <div class="container my-5">
+        <div class="text-center mb-5 pb-4">
+            <span class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 5px; color: #555555;">THE COUTURE COLLECTION</span>
+            <h2 class="fw-light display-5 mt-2" style="color: #111111; letter-spacing: 2px;">經典奢華 · 櫥窗推薦</h2>
+            <div style="width: 25px; height: 1px; background-color: #ba2626; margin: 20px auto;"></div>
+        </div>
+
+        <div class="row flex-column align-items-center">
+            <div class="col-lg-9 mb-5 pb-5">
+                <div class="row align-items-center g-0" style="background-color: #ffffff; border: 1px solid #e5dfd9;">
+                    <div class="col-md-6">
+                        <img src="https://via.placeholder.com/500x450/222222/ba2626?text=ZHEN+N%C2%B01+SCARLET" class="img-fluid w-100 rounded-0" style="object-fit: cover; min-height: 400px;" alt="經典紅底高跟鞋">
+                    </div>
+                    <div class="col-md-6 p-5">
+                        <span style="font-size: 0.8rem; letter-spacing: 3px; color: #ba2626;" class="fw-bold text-uppercase">N°1 ROUGE SCARLET</span>
+                        <h3 class="fw-light my-3" style="color: #111111;">緋紅之夜 · 奢華漆皮尖頭高跟鞋</h3>
+                        <p class="text-muted small mb-4" style="line-height: 1.8; letter-spacing: 0.5px; color: #666666;">
+                            選用頂級法式漆皮打造出極具張力的鏡面光澤，搭配 10cm 的極致纖細鞋跟。側面性感的挖空剪裁完美延伸腳背線條，翻轉鞋底瞬間流露出的經典猩紅，是專屬於夜色與聚光燈下的不朽傳奇。
+                        </p>
+                        
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top" style="border-color: #e5dfd9 !important;">
+                            <div>
+                                <small class="text-muted text-uppercase" style="font-size: 0.75rem; color: #888888;">Patent Leather / 100mm</small>
+                                <h4 class="fw-light mt-1 mb-0" style="color: #111111; font-weight: bold;">$28,800</h4>
+                            </div>
+                            <a href="{{ url_for('product') }}" class="btn btn-outline-dark rounded-0 px-4 py-2" style="font-size: 0.85rem; letter-spacing: 2px; border-color: #111111; transition: all 0.3s; text-decoration: none;">
+                                瀏覽完整系列
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
