@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, session, flash
 import dbconn  # 確保你的資料庫連線模組跟 app.py 在同一層
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def login():
                 session['user_name'] = user['name'] if isinstance(user, dict) else user[1]
                 
                 flash('尊榮會員登入成功！歡迎光臨 ZHEN 奢華高訂鞋履', 'success')
-                return redirect(url_for('index'))
+                return redirect('/')  # 🎯 完美修正：直接導向根目錄網址，不再引發 url_build_error
             else:
                 # 查無此會員或手機不符
                 flash('會員編號或手機號碼錯誤，請重新確認', 'danger')
@@ -41,7 +41,7 @@ def login():
             print(f"資料庫查詢發生錯誤: {e}")
             flash('系統連線異常，請稍後再試', 'danger')
             
-    # 🎯 修正重點：因為你的檔案在 templates/member/signin.html
+    # 指向你的正確登入頁面路徑
     return render_template('member/signin.html')
 
 # --- 3. 登出路由 ---
@@ -49,7 +49,7 @@ def login():
 def logout():
     session.clear()
     flash('您已成功安全登出尊榮會員系統', 'success')
-    return redirect(url_for('index'))
+    return redirect('/')  # 🎯 完美修正：直接導向根目錄網址
 
 if __name__ == '__main__':
     import os
