@@ -71,10 +71,11 @@
                     <li class="nav-item"><a class="nav-link nav-link-salon" href="{{ url_for('index') }}#artisan">製鞋巨匠</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto text-uppercase">
-                    {% if not session.get('username') %}
+                    {% if not session.get('mid') %}
                         <li class="nav-item"><a class="nav-link nav-link-salon" href="{{ url_for('signin') }}">登入試鞋間</a></li>
                         <li class="nav-item"><a class="nav-link nav-link-salon" href="{{ url_for('signup') }}">加入尊榮</a></li>
                     {% else %}
+                        <li class="nav-item"><span class="nav-link nav-link-salon text-muted" style="pointer-events: none;">VIP：{{ session.get('user_name') }}</span></li>
                         <li class="nav-item"><a class="nav-link nav-link-salon" href="{{ url_for('logout') }}">離開試鞋間</a></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link nav-link-salon fw-bold" href="{{ url_for('user') }}" style="color: #ba2626 !important;">尊榮鞋履沙龍</a></li>
