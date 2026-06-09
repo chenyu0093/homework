@@ -1,126 +1,38 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>尊榮登入 - ZHEN</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #fcfcfc;
-            font-family: "Times New Roman", "Noto Serif TC", "微軟正黑體", serif;
-        }
-        .login-container {
-            max-width: 460px;
-            background: #ffffff;
-            padding: 60px 45px;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.02);
-            margin-top: 5vh;
-        }
-        .brand-title {
-            font-size: 2.2rem;
-            letter-spacing: 8px;
-            color: #111111;
-            font-weight: 400;
-        }
-        .brand-subtitle {
-            font-style: italic;
-            color: #666666;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-        }
-        .divider {
-            width: 40px;
-            height: 1px;
-            background-color: #e0b0b0;
-            margin: 20px auto;
-        }
-        .custom-label {
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: #444444;
-            margin-bottom: 8px;
-            display: block;
-        }
-        .custom-input {
-            border: none;
-            border-bottom: 1px solid #cccccc;
-            border-radius: 0;
-            padding: 8px 0;
-            margin-bottom: 30px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        .custom-input:focus {
-            box-shadow: none;
-            border-color: #111111;
-            background-color: transparent;
-        }
-        .btn-luxury {
-            background-color: #111111;
-            color: #ffffff;
-            border: none;
-            border-radius: 0;
-            padding: 15px 0;
-            font-size: 1rem;
-            letter-spacing: 4px;
-            transition: background-color 0.3s;
-            margin-top: 10px;
-        }
-        .btn-luxury:hover {
-            background-color: #333333;
-            color: #ffffff;
-        }
-        .link-text {
-            color: #666666;
-            font-size: 0.88rem;
-            letter-spacing: 1px;
-        }
-        .link-highlight {
-            color: #b81c1c;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="login-container w-100 text-center">
-        
-        <div class="brand-title">尊榮登入</div>
-        <div class="brand-subtitle mt-2">歡迎回到您的 ZHEN 專屬私人試鞋間</div>
-        <div class="divider"></div>
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 65vh;">
+        <div class="col-md-4">
+            <div class="p-5 rounded-0 shadow-sm" style="background-color: #ffffff; border: 1px solid #ebdcd0;">
+                
+                <div class="text-center mb-5">
+                    <h3 class="fw-light mb-2" style="letter-spacing: 3px; color: #2b2724;">會員登入</h3>
+                    <p class="text-muted small" style="font-style: italic;">歡迎回到您的專屬私人調香室</p>
+                    <hr style="width: 30px; border-top: 1px solid #8a7e75; margin: 15px auto;">
+                </div>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-danger alert-dismissible fade show small text-start py-2" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 0.75rem;"></button>
+                <form method="POST" action="{{ url_for('signin') }}">
+                    <div class="mb-4">
+                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">帳號 (Username)</label>
+                        <input type="text" name="username" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入登入帳號" required>
                     </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+                    <div class="mb-5">
+                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">密碼 (Password)</label>
+                        <input type="password" name="password" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入密碼" required>
+                    </div>
+                    
+                    <button type="submit" class="btn w-100 py-3 rounded-0 text-white text-uppercase" style="background-color: #4a423d; border: none; letter-spacing: 2px; font-size: 0.9rem;">
+                        開啟氣味之門
+                    </button>
+                </form>
 
-        <form action="/login" method="POST" class="text-start mt-4">
-            
-            <label for="mid" class="custom-label">會員編號 (MID)</label>
-            <input type="text" class="form-control custom-input" id="mid" name="mid" placeholder="請輸入您的會員編號" required autocomplete="off">
+                <div class="text-center mt-4">
+                    <p class="small text-muted mb-0">尚未加入會員？ <a href="{{ url_for('signup') }}" class="text-dark text-decoration-underline" style="letter-spacing: 1px;">即刻預約</a></p>
+                </div>
 
-            <label for="phone" class="custom-label">手機號碼 (PHONE)</label>
-            <input type="tel" class="form-control custom-input" id="phone" name="phone" placeholder="請輸入您的註冊手機" required>
-
-            <button type="submit" class="btn btn-luxury w-100">開啟璀璨之門</button>
-            
-            <div class="text-center mt-4 link-text">
-                尚未成為會所成員？ <a href="#" class="link-highlight text-decoration-none">即刻尊榮預約</a>
             </div>
-        </form>
-        
+        </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock %}
