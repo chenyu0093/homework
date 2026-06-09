@@ -6,20 +6,37 @@
         <div class="col-md-4">
             <div class="p-5 rounded-0 shadow-sm" style="background-color: #ffffff; border: 1px solid #ebdcd0;">
                 
+                <div class="text-center mb-4">
+                    <img src="{{ url_for('static', filename='login_brand.jpg') }}" class="img-fluid rounded-0" style="max-height: 180px; border: 1px solid #ebdcd0; padding: 4px;" alt="ZHEN Haute Couture">
+                </div>
+
                 <div class="text-center mb-5">
                     <h3 class="fw-light mb-2" style="letter-spacing: 3px; color: #2b2724;">會員登入</h3>
                     <p class="text-muted small" style="font-style: italic;">歡迎回到您的專屬私人調香室</p>
                     <hr style="width: 30px; border-top: 1px solid #8a7e75; margin: 15px auto;">
                 </div>
 
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show small py-2 mb-4 rounded-0" role="alert" style="font-size: 0.85rem; background-color: #fdf7f4; border-color: #f5e6de; color: #a46458;">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 0.75rem;"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
                 <form method="POST" action="{{ url_for('signin') }}">
+                    
                     <div class="mb-4">
-                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">帳號 (Username)</label>
-                        <input type="text" name="username" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入登入帳號" required>
+                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">會員編號 (MID)</label>
+                        <input type="text" name="mid" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入您的 MID (如 m0001)" required autocomplete="off">
                     </div>
+                    
                     <div class="mb-5">
-                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">密碼 (Password)</label>
-                        <input type="password" name="password" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入密碼" required>
+                        <label class="form-label small text-uppercase" style="letter-spacing: 1px; color: #6e655f;">手機號碼 (Phone)</label>
+                        <input type="tel" name="phone" class="form-control rounded-0 border-0 border-bottom bg-transparent px-0 py-2" style="border-color: #d1c7bd !important; box-shadow: none;" placeholder="請輸入註冊時的手機號碼" required>
                     </div>
                     
                     <button type="submit" class="btn w-100 py-3 rounded-0 text-white text-uppercase" style="background-color: #4a423d; border: none; letter-spacing: 2px; font-size: 0.9rem;">
